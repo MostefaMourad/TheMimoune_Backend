@@ -11,14 +11,7 @@ const cors = require('cors');
 
 
 /** Routers */
-const adminRouter = require('./routes/adminRouter');
-const categoryRouter = require('./routes/categoryRouter');
-const associationRouter = require('./routes/associationRouter');
-const fileRouter = require('./routes/fileRouter');
-const privateFileRouter = require('./routes/privateFileRouter');
-const notificationRouter = require('./routes/notificationRouter');
-const dashboardRouter = require('./routes/dashboardRouter');
-const contactRouter = require('./routes/contactRouter');
+
 
 const app = express();
 
@@ -35,34 +28,27 @@ mongoose.connect(config.mongoUrl,
 /** Setting UP the envirement for express & passport */
 app.use(cors());
 app.use(logger('dev'));
-app.use('/admin',dashboardRouter);
+//app.use('/admin',dashboardRouter);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use('/files',express.static(path.join(__dirname,'storage/Files')));
-app.use('/private-files',express.static(path.join(__dirname,'storage/PrivateFiles')));
+//app.use('/files',express.static(path.join(__dirname,'storage/Files')));
 
 
 
 /** Configure Express and Sessions */
-app.use(session({
+/*app.use(session({
   secret:'secret Key',
   resave:false,
   saveUninitialized: true
 }));
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session());*/
 
 
 
 /** Integrating the Routes */
-app.use('/api/admin',adminRouter);
-app.use('/api/category',categoryRouter);
-app.use('/api/association',associationRouter);
-app.use('/api/file',fileRouter);
-app.use('/api/private-file',privateFileRouter);
-app.use('/api/notification',notificationRouter);
-app.use('/api/contact',contactRouter);
+
 
 /** Gestion des erreurs */
 app.use(function(err,req,res,next) {

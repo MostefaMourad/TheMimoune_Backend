@@ -4,7 +4,7 @@
   "description": "it's a node Js App for a school project",
   "main": "index.js",
   "scripts": {
-    "start": "app/index.js"
+    "start": "nodemon app/index.js"
   },
   "author": "Mourad",
   "license": "MIT"

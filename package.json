@@ -1,0 +1,11 @@
+{
+  "name": "TheMimoune",
+  "version": "1.0.0",
+  "description": "it's a node Js App for a school project",
+  "main": "index.js",
+  "scripts": {
+    "start": "app/index.js"
+  },
+  "author": "Mourad",
+  "license": "MIT"
+}
